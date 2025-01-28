@@ -1,14 +1,34 @@
+//***************************************************************************
+// File name:   CalculatorTests.cpp
+// Author:      chadd williams
+// Date:        1/27/25
+// Class:       CS 485
+// Assignment:  Unit test example
+// Purpose:     Unit tests for class Calculator
+//***************************************************************************
+
 #include <gtest/gtest.h>
-#include <iostream>
 
 #include "../include/Calculator.h"
 
+//***************************************************************************
+// Test:    		TestSimpleAdd
+//
+// Description: Test a simple two operand add
+//
+//***************************************************************************
 TEST (TestSuite, TestSimpleAdd) {
 	Calculator cCalc;
 
   EXPECT_EQ( cCalc.add(1, 2), 3.0);
 }
 
+//***************************************************************************
+// Test:    		TestChainAdd
+//
+// Description: Test a chain of adds, 1+2+9
+//
+//***************************************************************************
 TEST (TestSuite, TestChainAdd) {
 	Calculator cCalc;
 
@@ -17,12 +37,25 @@ TEST (TestSuite, TestChainAdd) {
   EXPECT_EQ( cCalc.add(9), 12.0);
 }
 
+//***************************************************************************
+// Test:    		ExpectException
+//
+// Description: Test that Calculator::add(int) throws an exception if no
+//							running total exists
+//
+//***************************************************************************
 TEST (TestSuite, ExpectException) {
 	Calculator cCalc;
 
   EXPECT_THROW( cCalc.add(1), std::invalid_argument);
 }
 
+//***************************************************************************
+// Test:    		ShowFailingtest
+//
+// Description: Show a test failing, 0+1 != 2
+//
+//***************************************************************************
 TEST (TestSuite, ShowFailingtest) {
 	Calculator cCalc;
 
