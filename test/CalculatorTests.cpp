@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include <iostream>
 
 #include "../include/Calculator.h"
 
@@ -15,7 +16,6 @@ TEST (TestSuite, TestChainAdd) {
 
   EXPECT_EQ( cCalc.add(9), 12.0);
 }
-
 
 TEST (TestSuite, ExpectException) {
 	Calculator cCalc;
