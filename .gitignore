@@ -397,3 +397,6 @@ FodyWeavers.xsd
 # JetBrains Rider
 .idea/
 *.sln.iml
+build/
+googletest/
+*.tar.gz
