@@ -8,9 +8,27 @@ TEST (TestSuite, TestSimpleAdd) {
   EXPECT_EQ( cCalc.add(1, 2), 3.0);
 }
 
-//TEST (TestSuite, ExpectException) {
-//  EXPECT_THROW( methodThatThrows( 'A'), std::invalid_argument);
-//}
+TEST (TestSuite, TestChainAdd) {
+	Calculator cCalc;
+
+	cCalc.add(1, 2);
+
+  EXPECT_EQ( cCalc.add(9), 12.0);
+}
+
+
+TEST (TestSuite, ExpectException) {
+	Calculator cCalc;
+
+  EXPECT_THROW( cCalc.add(1), std::invalid_argument);
+}
+
+TEST (TestSuite, ShowFailingtest) {
+	Calculator cCalc;
+
+  EXPECT_EQ( cCalc.add(0, 1), 2.0);
+}
+
 
 //TEST (TestSuite, ExpectTerminate) {
 //  // expect exit with code 1
