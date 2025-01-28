@@ -104,7 +104,7 @@
 
 		"cmake.debugConfig": { // ADD THIS FOR LLDB SUPPORT IN CMAKE
     "type": "lldb",
-    "terminal": "external",
+    //"terminal": "external",
     "name": "C/C++ Launch (LLDB)",
     "miDebuggerPath": "/usr/bin/lldb"
   },
