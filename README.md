@@ -17,10 +17,10 @@ Apply the coding standards via:
 *We will standardize on a particular version of Google Test this semester:
 
 ```
-wget https://github.com/google/googletest/archive/refs/tags/v1.15.2.tar.gz
-tar zxf v1.15.2.tar.gz
-mv mv googletest-1.15.2/ googletest
-rm v1.15.2.gz
+wget https://github.com/google/googletest/archive/refs/tags/v1.15.2.tar.gz;
+tar zxf v1.15.2.tar.gz;
+mv googletest-1.15.2/ googletest;
+rm v1.15.2.tar.gz;
 ```
 
 * In the lower left of the Explorer window you will see Codespaces: and the name of your running codespace which is two words. At the far right you will see a triangle pointing right. Click that icon.

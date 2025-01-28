@@ -1,10 +1,11 @@
 #include <gtest/gtest.h>
 
-#include "../include/placeholder.h"
+#include "../include/Calculator.h"
 
-TEST (TestSuite, FirstTest) {
+TEST (TestSuite, TestSimpleAdd) {
+	Calculator cCalc;
 
-  EXPECT_EQ(1, 1);
+  EXPECT_EQ( cCalc.add(1, 2), 3.0);
 }
 
 //TEST (TestSuite, ExpectException) {
