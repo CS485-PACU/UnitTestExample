@@ -16,11 +16,11 @@ enable_testing()
 add_subdirectory(googletest)
 
 set (Headers
-    include/placeholder.h
+    include/Calculator.h
 )
 
 set (Sources
-    src/main.cpp
+    src/Calculator.cpp
 )
 
 add_library(${This} STATIC ${Sources} ${Headers})
