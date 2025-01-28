@@ -37,7 +37,7 @@ valgrind: bin/main
 	valgrind ${VALGRIND_FLAGS} bin/main
 
 printAll:
-	enscript ${ENSCRIPT_FLAGS} src/*.cpp include/*.h  | ps2pdf - bin/src.pdf
+	enscript ${ENSCRIPT_FLAGS} src/*.cpp include/*.h  test/*.cpp | ps2pdf - bin/src.pdf
 
 runMe: bin/main
 	bin/main
