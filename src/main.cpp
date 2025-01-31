@@ -1,21 +1,22 @@
 //***************************************************************************
 // File name:   main.cpp
-// Author:      
-// Date:        
-// Class:       
-// Assignment:  
-// Purpose:     
+// Author:      chadd williams
+// Date:        1/30/25
+// Class:       CS 485
+// Assignment:  Unit Test Paired Work
+// Purpose:     Make sure Calculator.cpp compiles
 //***************************************************************************
 
 #include <iostream>
 #include <vector> 
 #include <string>
 #include <sstream>
+#include "../include/Calculator.h"
 
 //***************************************************************************
 // Function:    main
 //
-// Description: Print hi!
+// Description: Run some calculations
 //
 // Parameters:  none
 //
@@ -23,7 +24,13 @@
 //***************************************************************************
 int main()
 {
-    std::string cMessage = "hi!";
-    std::cout << ">> " << cMessage << " << " << std::endl;  
-    return EXIT_SUCCESS;
+	Calculator cCalc;
+
+	std::cout << cCalc.add(1, 2) << std::endl;
+	std::cout << cCalc.add(3) << std::endl;
+	std::cout << cCalc.multiply(4) << std::endl;
+	std::cout << cCalc.divide(5) << std::endl;
+	std::cout << cCalc.getTotal() << std::endl;
+
+  return EXIT_SUCCESS;
 }
