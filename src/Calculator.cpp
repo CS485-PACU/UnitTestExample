@@ -10,6 +10,8 @@
 
 #include "../include/Calculator.h"
 #include <stdexcept>
+using namespace CS485_Calc;
+
 
 //***************************************************************************
 // Constructor:  Calculator
@@ -20,7 +22,7 @@
 //
 // Returned:    None
 //***************************************************************************
-Calculator::Calculator() {
+Calculator::Calculator () {
 
 }
 
@@ -33,7 +35,7 @@ Calculator::Calculator() {
 //
 // Returned:    None
 //***************************************************************************
-Calculator::~Calculator() {
+Calculator::~Calculator () {
 	if (nullptr != mpRunningTotal) {
 		delete mpRunningTotal;
 	}
@@ -49,12 +51,12 @@ Calculator::~Calculator() {
 //
 // Returned:    The new running total
 //***************************************************************************
-double Calculator::add(int lhs, int rhs){
+double Calculator::add (int lhs, int rhs) {
 	if (nullptr == mpRunningTotal) {
 		mpRunningTotal = new double;
 	}
 	*mpRunningTotal = lhs + rhs;
-	
+
 	return *mpRunningTotal;
 }
 
@@ -69,13 +71,13 @@ double Calculator::add(int lhs, int rhs){
 //
 // Returned:    The new running total
 //***************************************************************************
-double Calculator::add(int rhs){
+double Calculator::add (int rhs) {
 	if (nullptr == mpRunningTotal) {
-		throw std::invalid_argument("No running total");
+		throw std::invalid_argument ("No running total");
 	}
 
 	*mpRunningTotal += rhs;
-	
+
 	return *mpRunningTotal;
 }
 
@@ -90,9 +92,9 @@ double Calculator::add(int rhs){
 //
 // Returned:    The current running total
 //***************************************************************************
-double Calculator::getTotal() const {
+double Calculator::getTotal () const {
 	if (nullptr == mpRunningTotal) {
-		throw std::invalid_argument("No running total");
+		throw std::invalid_argument ("No running total");
 	}
 
 	return *mpRunningTotal;
@@ -109,9 +111,41 @@ double Calculator::getTotal() const {
 //
 // Returned:    None
 //***************************************************************************
-void Calculator::clear()  {
-	if (nullptr == mpRunningTotal) {
+void Calculator::clear () {
+	if (nullptr != mpRunningTotal) {
 		delete mpRunningTotal;
 		mpRunningTotal = nullptr;
 	}
+}
+/*
+Calculator& Calculator::operator+= (int rhs) {
+	this->add (rhs);
+
+	return *this;
+}
+
+Calculator& Calculator::operator+= (const Calculator& rcRHS) {
+
+	this->add (rcRHS.getTotal ());
+	return *this;
+}
+*/
+Calculator& Calculator::operator= (double value) {
+	if (nullptr == mpRunningTotal) {
+		mpRunningTotal = new double;
+	}
+	*mpRunningTotal = value;
+	return *this;
+}
+
+CS485_Calc::Calculator& CS485_Calc::operator+= (CS485_Calc::Calculator &rcLHS, 
+																								int rhs) {
+	rcLHS.add (rhs);
+	return rcLHS;
+}
+
+CS485_Calc::Calculator& CS485_Calc::operator+= (CS485_Calc::Calculator &rcLHS, 
+																		const CS485_Calc::Calculator& rcRHS) {
+	rcLHS.add (rcRHS.getTotal ());
+	return rcLHS;
 }

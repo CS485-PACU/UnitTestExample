@@ -9,21 +9,33 @@
 
 #pragma once
 
+namespace CS485_Calc {
+
 class Calculator {
 
-	public:
-		Calculator();
+public:
+	Calculator ();
 
-		~Calculator();
+	Calculator (const Calculator& rcCalc) = delete;
+	Calculator& operator= (const Calculator& rcCalc) = delete;
+	Calculator& operator= (double value);
 
-		double add(int lhs, int rhs);
-		double add(int rhs);
+	~Calculator ();
 
-		double getTotal() const;
+	double add (int lhs, int rhs);
+	double add (int rhs);
 
-		void clear();
+	//Calculator& operator+= (int rhs);
+	//Calculator& operator+= (const Calculator& rcRHS);
 
-	private:
-		double *mpRunningTotal = nullptr;
+	double getTotal () const;
+	void clear ();
 
+private:
+	double* mpRunningTotal = nullptr;
 };
+
+Calculator& operator+= (Calculator &rcLHS, int rhs);
+Calculator& operator+= (Calculator &rcLHS, const Calculator& rcRHS);
+
+}
